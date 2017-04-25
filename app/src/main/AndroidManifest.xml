@@ -21,7 +21,17 @@
         </activity>
         <activity android:name=".Home" />
         <activity android:name=".Forgot" />
-        <activity android:name=".QR_Code"></activity>
+        <activity android:name=".QR_Code" />
+        <activity android:name=".Home2" />
+        <activity android:name=".Parent_homwork" />
+        <activity android:name=".Parent_attend" />
+        <activity android:name=".Parent_handbook" />
+        <activity android:name=".Parent_notice" />
+        <activity android:name=".Parent_notification" />
+        <activity android:name=".Parent_contact" />
+        <activity android:name=".Teacher_homework" />
+        <activity android:name=".Teacher_attend" />
+        <activity android:name=".Teacher_message"></activity>
     </application>
 
 </manifest>

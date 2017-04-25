@@ -28,17 +28,18 @@ public class MainActivity extends AppCompatActivity {
         Button btnLogin = (Button) findViewById(R.id.bLogin);
         Button btnForgot = (Button) findViewById(R.id.bForget);
 
+
         btnForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                //從MainActivity 到Main2Activity
                 intent.setClass(MainActivity.this , Forgot.class);
-                //開啟Activity
                 MainActivity.this.startActivity(intent);
             }
         });
         btnLogin.setOnClickListener(new View.OnClickListener() {
+            String str = etUsername.getEditableText().toString();
+            String str2 = etPassword.getEditableText().toString();
             @Override
             public void onClick(View v) {
                 final String username = etUsername.getText().toString();
@@ -49,14 +50,24 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("isVaild");
-                            if (success) {
-                                Intent intent = new Intent();
-                                //從MainActivity 到Main2Activity
-                                intent.setClass(MainActivity.this , Home.class);
-                                //開啟Activity
+                            String username = jsonResponse.getString("username");
+                            String type = jsonResponse.getString("type");
+                            String parent = new String("parent");
+                            String officer = new String("officer");
+                            Intent intent = new Intent(MainActivity.this, Home.class);
+                            intent.putExtra("type", type);
+                            intent.putExtra("username", str);
+                            intent.putExtra("password", str2);
+                            intent.putExtra("username", username);
+                            Intent intent2 = new Intent(MainActivity.this, Home2.class);
+                            intent2.putExtra("type", type);
+                            intent2.putExtra("username", username);
+                            intent2.putExtra("username", str);
+                            intent2.putExtra("password", str2);
+                            if (success && type.equals(officer)) {
                                 MainActivity.this.startActivity(intent);
-
-
+                            }  else if (success && type.equals(parent)){
+                                MainActivity.this.startActivity(intent2);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_SHORT).show();
                             }

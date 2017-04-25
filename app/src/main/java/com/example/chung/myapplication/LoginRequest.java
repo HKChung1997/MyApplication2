@@ -16,7 +16,8 @@ import java.util.Map;
  */
 
 public class LoginRequest extends StringRequest{
-    private static  final String LOGIN_REQUEST_URL = "https://lenchan139.org/myWorks/fyp/android/login.php";
+    private static  final String LOGIN_REQUEST_URL = "https://lenchan139.org/myWorks/fyp/android/userDetails.php";
+
     private Map<String, String> params;
 
     public LoginRequest(String username, String password, Response.Listener<String> listener) {
@@ -25,7 +26,6 @@ public class LoginRequest extends StringRequest{
         params.put("username", username);
         params.put("password", password);
     }
-
     public Map<String, String> getParams() {
         return params;
     }

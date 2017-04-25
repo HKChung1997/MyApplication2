@@ -15,6 +15,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="parentX"
         android:id="@+id/etUsername" />
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +24,9 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etPassword" />
+        android:id="@+id/etPassword"
+        android:text="pw"
+        android:password="true"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
